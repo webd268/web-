@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Agency</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{line-height:1.6}
+
+    /* ===== Navbar ===== */
+    header{position:fixed;top:0;left:0;width:100%;background:#0a2540;color:#fff;z-index:1000}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:15px 30px}
+    .logo{font-size:22px;font-weight:bold}
+    .nav ul{list-style:none;display:flex;gap:20px}
+    .nav ul li a{color:#fff;text-decoration:none;font-size:16px}
+    .menu-btn{display:none;font-size:26px;cursor:pointer}
+
+    /* ===== Hero ===== */
+    .hero{height:100vh;background:url('src/_White And Brown Minimalist Traveling YouTube Channel Art.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:20px}
+    .hero h1{font-size:48px;margin-bottom:10px}
+    .hero p{font-size:18px;margin-bottom:20px}
+    .hero button{padding:12px 25px;border:none;background:#ff9800;color:#000;font-size:16px;cursor:pointer;border-radius:4px}
+
+    /* ===== Sections ===== */
+    section{padding:80px 30px}
+    .title{text-align:center;margin-bottom:40px;font-size:32px;color:#0a2540}
+
+    /* ===== Destinations ===== */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{box-shadow:0 5px 15px rgba(0,0,0,.1);border-radius:8px;overflow:hidden}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card .content{padding:15px}
+    .card h3{margin-bottom:10px}
+
+    /* ===== Contact ===== */
+    form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px}
+    form input,form textarea{padding:10px;font-size:15px}
+    form button{padding:12px;background:palevioletred;color:#fff;border:none;font-size:16px;cursor:pointer}
+
+    footer{text-align:center;padding:20px;background: pink;color:#fff}
+
+    /* ===== Responsive ===== */
+    @media(max-width:768px){
+      .nav ul{position:absolute;top:60px;left:0;width:100%;background:pink;flex-direction:column;align-items:center;display:none}
+      .nav ul.show{display:flex}
+      .menu-btn{display:block}
+      .hero h1{font-size:36px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Dream Travel</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#dest">Destinations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id="home" class="hero">
+  <div>
+    <h1></h1>
+    <p></p>
+    
+  </div>
+</div>
+
+<section id="dest">
+  <h2 class="title">Popular Cities</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="src/download (2).jpg" alt="skrdu">
+      <div class="content">
+        <h3>skrdu</h3>
+        <p>City of natural lakes.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="src/download.jpg" alt="islamabad">
+      <div class="content">
+        <h3>islamabad</h3>
+        <p>peace and natural beauty .</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="src/download (3).jpg" alt="karachi">
+      <div class="content">
+        <h3>karachi</h3>
+        <p>city of lights.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="src/download (4).jpg" alt="tharparkar">
+      <div class="content">
+        <h3>tharparkar</h3>
+        <p>deserted city .</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="title">Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Dream Travel Agency. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('menu').classList.toggle('show');
+  }
+
+  // smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      document.getElementById('menu').classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
